@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;900&display=swap');*/
+body{
+    background-color: #00000000;
+    width: 100%;
+    height: 100%;
+}
+
+.header{
+    margin: 0% 0.1% 0.1% 0.1%;
+}
+
+#header-top{
+    display: flex;
+    width: 100%;
+    background-color: #e69138;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Roboto Flex', sans-serif;
+    /*font-family: 'Nunito', sans-serif;*/
+}
+
+#titulo{
+    font-family: 'Nunito', sans-serif !important;
+    font-size: 45px;
+}
+
+#ingresar{
+    font-size: 18px;
+    justify-content: right !important;
+    font-family: 'Roboto Flex', sans-serif;
+    
+}
+
+#ingresar a{
+    color: #000000;
+    text-decoration: none;
+}
+
+#header-bot{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #000000;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+    font-family: 'Roboto Flex', sans-serif;
+}
+
+.nav-header{
+    list-style: none;
+}
+
+.nav-header li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.nav-header img{
+    height: 150px;
+    width: auto;
+}
+
+.nav-header a{
+    color: #f1c232;
+    text-decoration: none;
+}
+
+.nav-header li:hover{
+    transform: scale(1.1);
+}
+
+.titulo-producto{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 3px solid #60504b;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+    color: #760300;
+    background-color: #e69138;
+}
+
+.cuerpo{
+    background-color: #000000;
+    font-family: 'Roboto Flex', sans-serif;
+    margin: 0.2%;
+    padding: 0.1%;
+}
+
+.cuerpo .productos{
+    margin: 0.8% 0% 0.8% 0%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer{
+    margin: 0.1% 0.1% 0% 0.1;
+    background-color: bisque;
+}
+
+.footer-top{
+    font-family: 'Roboto Flex', sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0.5%;
+}
+
+.footer-bot{
+    display: flex;
+    font-family: 'Roboto Flex', sans-serif;
+    width: 100%;
+    justify-content: space-around;
+    background-color:azure !important;
+}
+
+.logo-contacto{
+    list-style: none;
+    display: inline-block;
+}
+
+.imglogo{
+    max-width: 35px;
+    max-height: 35px;
+    border-radius: 40px;
+}
