@@ -14,7 +14,8 @@
                 header("location:admin.php");
             }else if($array['id_cargo'] == 2){//usuario
                 header("location:Index.php");
-                $_SESSION['bar']['usuario'] = $usuario;
+                session_start();
+                $_SESSION['bar']['usuario'] = $array['usuario'];
                 include("mostrarUsuario.php");
             }else{
                 ?>

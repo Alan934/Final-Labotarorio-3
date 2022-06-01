@@ -10,6 +10,7 @@
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
     <header>
         <nav class="container-fluid bg-warning d-flex flex-wrap justify-content-center">
             <p class="text-dark fw-bold mb-0 p-0 fs-1 d-flex flex-wrap justify-content-center col-9">BARPINCHO Catalogo</p>
@@ -29,6 +30,24 @@
                                 <form method="POST">
                                     <li><button class="btn dropdown-item bg-dark text-warning" name="ascendentePrecio">Ascendente</button></li>
                                     <li><button class="btn dropdown-item bg-dark text-warning" name="descendentePrecio">Descendente</button></li>
+                                </form>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">CAPACIDAD</a>
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                <form method="POST">
+                                    <li><button class="btn dropdown-item bg-dark text-warning" name="ascendenteCapacidad">Ascendente</button></li>
+                                    <li><button class="btn dropdown-item bg-dark text-warning" name="descendenteCapacidad">Descendente</button></li>
+                                </form>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">NOMBRE</a>
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                <form method="POST">
+                                    <li><button class="btn dropdown-item bg-dark text-warning" name="ascendenteNombre">Ascendente</button></li>
+                                    <li><button class="btn dropdown-item bg-dark text-warning" name="descendenteNombre">Descendente</button></li>
                                 </form>
                             </ul>
                         </li>

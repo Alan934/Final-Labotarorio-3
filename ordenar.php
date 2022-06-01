@@ -1,137 +1,71 @@
 <?php 
     include("con_db.php");
+    include("productos/vinos.php");
+    include("productos/espumantes.php");
+    include("productos/whiskys.php");
+    include("productos/cervezas.php");
+    if(isset($_POST['descendentePrecio'])){
+        $descendenteVinos = mysqli_query($conex, "SELECT * FROM vinos ORDER BY precio ASC");
+        $descendenteEspumantes = mysqli_query($conex, "SELECT * FROM whiskys ORDER BY precio ASC");
+        $descendenteWhiskys = mysqli_query($conex, "SELECT * FROM espumantes ORDER BY precio ASC");
+        $descendenteCervezas = mysqli_query($conex, "SELECT * FROM cerveza ORDER BY precio ASC");
+        mostrarVinos($descendenteVinos);
+        mostrarEspumantes($descendenteEspumantes);
+        mostrarWhiskys($descendenteWhiskys);
+        mostrarCerveza($descendenteCervezas);
+    }
+    if(isset($_POST['ascendentePrecio'])){
+        $ascendenteVinos = mysqli_query($conex, "SELECT * FROM vinos ORDER BY precio DESC");
+        $ascendenteEspumantes = mysqli_query($conex, "SELECT * FROM whiskys ORDER BY precio DESC");
+        $ascendenteWhiskys = mysqli_query($conex, "SELECT * FROM espumantes ORDER BY precio DESC");
+        $ascendenteCervezas = mysqli_query($conex, "SELECT * FROM cerveza ORDER BY precio DESC");
+        mostrarVinos($ascendenteVinos);
+        mostrarEspumantes($ascendenteEspumantes);
+        mostrarWhiskys($ascendenteWhiskys);
+        mostrarCerveza($ascendenteCervezas);
+    }
 
-        if(isset($_POST['descendentePrecio'])){
-            $descendente = mysqli_query($conex, "SELECT * FROM vinos ORDER BY precio ASC");
-            $descendenteC = mysqli_query($conex, "SELECT * FROM cerveza ORDER BY precio ASC");
-            ?>
-            <div class="bg-warning">
-              <span class="d-flex justify-content-center bg-warning text-dark fw-bold fs-3">VINOS</span>
-            </div>
-            <div class="album py-5 bg-dark">
-              <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                  <?php
-                    foreach($descendente as $vinos){
-                        ?>
-                            <div class="col bg-warning.bg-gradient">
-                                <div class="card shadow-sm bg-warning.bg-gradient">
-                                    <a href=""><img src="<?php echo $vinos['url'];?>" title="Informacion" class="bd-placeholder-img card-img-top" width="100%" height="10%" alt="<?php echo $vinos['nombre'];?>"></a>     
-                                    <div class="card-body">
-                                        <p class="card-text text-success text-center fw-bold">$<?php echo $vinos['precio'];?> ARS</p>
-                                        <div class="d-flex justify-content-between align-items-left">
-                                            <div class="btn-group">
-                                                <span class="text-info fw-bold">Variedad: </span><span class="text-warning fw-bold"><?php echo $vinos['variedad'];?></span>
-                                            </div>
-                                            <small class="text-muted fw-bold"><?php echo $vinos['capacidad'];?>ml</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php
-                    }
-                  ?>
-                </div>
-              </div>
-            </div>
+    if(isset($_POST['descendenteCapacidad'])){
+        $descendenteVinos = mysqli_query($conex, "SELECT * FROM vinos ORDER BY capacidad ASC");
+        $descendenteEspumantes = mysqli_query($conex, "SELECT * FROM whiskys ORDER BY capacidad ASC");
+        $descendenteWhiskys = mysqli_query($conex, "SELECT * FROM espumantes ORDER BY capacidad ASC");
+        $descendenteCervezas = mysqli_query($conex, "SELECT * FROM cerveza ORDER BY capacidad ASC");
+        mostrarVinos($descendenteVinos);
+        mostrarEspumantes($descendenteEspumantes);
+        mostrarWhiskys($descendenteWhiskys);
+        mostrarCerveza($descendenteCervezas);
+    }
+    if(isset($_POST['ascendenteCapacidad'])){
+        $ascendenteVinos = mysqli_query($conex, "SELECT * FROM vinos ORDER BY capacidad DESC");
+        $ascendenteEspumantes = mysqli_query($conex, "SELECT * FROM whiskys ORDER BY capacidad DESC");
+        $ascendenteWhiskys = mysqli_query($conex, "SELECT * FROM espumantes ORDER BY capacidad DESC");
+        $ascendenteCervezas = mysqli_query($conex, "SELECT * FROM cerveza ORDER BY capacidad DESC");
+        mostrarVinos($ascendenteVinos);
+        mostrarEspumantes($ascendenteEspumantes);
+        mostrarWhiskys($ascendenteWhiskys);
+        mostrarCerveza($ascendenteCervezas);
+    }
 
-            <div class="bg-warning">
-                  <span class="d-flex justify-content-center bg-warning text-dark fw-bold fs-3">CERVEZAS</span>
-                </div>
-                <div class="album py-5 bg-dark">
-                  <div class="container">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                      <?php
-                        foreach($descendenteC as $cerveza){
-                            ?>
-                                <div class="col bg-warning.bg-gradient">
-                                    <div class="card shadow-sm bg-warning.bg-gradient">
-                                        <a href=""><img src="<?php echo $cerveza['url'];?>" title="Informacion" class="bd-placeholder-img card-img-top" width="100%" height="10%" alt="<?php echo $cerveza['nombre'];?>"></a>     
-                                        <div class="card-body">
-                                            <p class="card-text text-success text-center fw-bold">$<?php echo $cerveza['precio'];?> ARS</p>
-                                            <div class="d-flex justify-content-between align-items-left">
-                                                <div class="btn-group">
-                                                    <span class="text-info fw-bold">Variedad: </span><span class="text-warning fw-bold"><?php echo $cerveza['variedad'];?></span>
-                                                </div>
-                                                <small class="text-muted fw-bold"><?php echo $cerveza['capacidad'];?>ml</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php
-                        }
-                      ?>
-                    </div>
-                  </div>
-            </div>
-        <?php
-        }
-        if(isset($_POST['ascendentePrecio'])){
-            $ascendenteV = mysqli_query($conex, "SELECT * FROM vinos ORDER BY precio DESC");
-            $ascendenteC = mysqli_query($conex, "SELECT * FROM cerveza ORDER BY precio DESC");
-            ?>
-                <div class="bg-warning">
-                    <span class="d-flex justify-content-center bg-warning text-dark fw-bold fs-3">VINOS</span>
-                    </div>
-                    <div class="album py-5 bg-dark">
-                    <div class="container">
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <?php
-                            foreach($ascendenteV as $vinos){
-                                ?>
-                                    <div class="col bg-warning.bg-gradient">
-                                        <div class="card shadow-sm bg-warning.bg-gradient">
-                                            <a href=""><img src="<?php echo $vinos['url'];?>" title="Informacion" class="bd-placeholder-img card-img-top" width="100%" height="10%" alt="<?php echo $vinos['nombre'];?>"></a>     
-                                            <div class="card-body">
-                                                <p class="card-text text-success text-center fw-bold">$<?php echo $vinos['precio'];?> ARS</p>
-                                                <div class="d-flex justify-content-between align-items-left">
-                                                    <div class="btn-group">
-                                                        <span class="text-info fw-bold">Variedad: </span><span class="text-warning fw-bold"><?php echo $vinos['variedad'];?></span>
-                                                    </div>
-                                                    <small class="text-muted fw-bold"><?php echo $vinos['capacidad'];?>ml</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php
-                            }
-                        ?>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-warning">
-                  <span class="d-flex justify-content-center bg-warning text-dark fw-bold fs-3">CERVEZAS</span>
-                </div>
-                <div class="album py-5 bg-dark">
-                  <div class="container">
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                      <?php
-                        foreach($ascendenteC as $cerveza){
-                            ?>
-                                <div class="col bg-warning.bg-gradient">
-                                    <div class="card shadow-sm bg-warning.bg-gradient">
-                                        <a href=""><img src="<?php echo $cerveza['url'];?>" title="Informacion" class="bd-placeholder-img card-img-top" width="100%" height="10%" alt="<?php echo $cerveza['nombre'];?>"></a>     
-                                        <div class="card-body">
-                                            <p class="card-text text-success text-center fw-bold">$<?php echo $cerveza['precio'];?> ARS</p>
-                                            <div class="d-flex justify-content-between align-items-left">
-                                                <div class="btn-group">
-                                                    <span class="text-info fw-bold">Variedad: </span><span class="text-warning fw-bold"><?php echo $cerveza['variedad'];?></span>
-                                                </div>
-                                                <small class="text-muted fw-bold"><?php echo $cerveza['capacidad'];?>ml</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php
-                        }
-                      ?>
-                    </div>
-                  </div>
-                </div>
-            <?php
-        }
-
+    if(isset($_POST['descendenteNombre'])){
+        $descendenteVinos = mysqli_query($conex, "SELECT * FROM vinos ORDER BY nombre ASC");
+        $descendenteEspumantes = mysqli_query($conex, "SELECT * FROM whiskys ORDER BY nombre ASC");
+        $descendenteWhiskys = mysqli_query($conex, "SELECT * FROM espumantes ORDER BY nombre ASC");
+        $descendenteCervezas = mysqli_query($conex, "SELECT * FROM cerveza ORDER BY nombre ASC");
+        mostrarVinos($descendenteVinos);
+        mostrarEspumantes($descendenteEspumantes);
+        mostrarWhiskys($descendenteWhiskys);
+        mostrarCerveza($descendenteCervezas);
+    }
+    if(isset($_POST['ascendenteNombre'])){
+        $ascendenteVinos = mysqli_query($conex, "SELECT * FROM vinos ORDER BY nombre DESC");
+        $ascendenteEspumantes = mysqli_query($conex, "SELECT * FROM whiskys ORDER BY nombre DESC");
+        $ascendenteWhiskys = mysqli_query($conex, "SELECT * FROM espumantes ORDER BY nombre DESC");
+        $ascendenteCervezas = mysqli_query($conex, "SELECT * FROM cerveza ORDER BY nombre DESC");
+        mostrarVinos($ascendenteVinos);
+        mostrarEspumantes($ascendenteEspumantes);
+        mostrarWhiskys($ascendenteWhiskys);
+        mostrarCerveza($ascendenteCervezas);
+    }
 
     
 ?>
