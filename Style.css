@@ -1,0 +1,12 @@
+.imgHeader{
+    max-width: 5rem;
+}
+
+.bodyIngreso, .bodyRegistro, .bodyEditar, .bodyAgregarProducto{
+    background-image: url("imagenes/fondo/textura-reciclado.jpg");
+}
+
+.bodyAdmin{
+    background-image: url("imagenes/fondo/textura-de-madera.jpg");
+}
+
